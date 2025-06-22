@@ -29,6 +29,35 @@
 %%The option is available for: sn-basic.bst, sn-chicago.bst%  
  
 \documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+
+%%%% ===================================== %%%%
+%%%% ENCABEZADO VISUAL PERSONALIZADO %%%%
+%%%% ===================================== %%%%
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{ragged2e} % para \justifying
+
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{} % limpia encabezados y pies
+  \renewcommand{\headrulewidth}{0pt} % sin línea horizontal
+  \fancyhead[L]{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \fill[cyan!70!black] (0,0) rectangle (\paperwidth,0.2cm);
+      \node[anchor=west, font=\bfseries, scale=1.8] at (0.3,-0.4) {Nature Machine Intelligence};
+    \end{tikzpicture}%
+  }
+}
+
+
+% El resto de páginas sin encabezado
+\pagestyle{empty}
+
+
+% Encabezado solo en esta primera página
+\thispagestyle{firstpage}
+
 %%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
 %%\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
 %%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
@@ -91,58 +120,62 @@
 
 \begin{document}
 
-\title[Article Title]{Article Title}
+\makeatletter
+\def\@title{\parbox[t]{\textwidth}{\justifying\LARGE\bfseries Diseño e implementación de asistente inteligente de riego en tiempo real usando \textit{machine learning} en un sistema embebido para reducir costos por consumo de agua en el cuidado del jardín doméstico en el domicilio lote 30 manzana 5, Calle Cerro De La Silla, colonia Sagitario 1, Ecatepec de Morelos en el periodo febrero-junio 2025}}
+\makeatother
 
-%%=============================================================%%
-%% GivenName	-> \fnm{Joergen W.}
-%% Particle	-> \spfx{van der} -> surname prefix
-%% FamilyName	-> \sur{Ploeg}
-%% Suffix	-> \sfx{IV}
-%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
-%%  \sfx{IV}}\email{iauthor@gmail.com}
-%%=============================================================%%
 
-\author*[1,2]{\fnm{First} \sur{Author}}\email{iauthor@gmail.com}
+\vspace{1cm}
 
-\author[2,3]{\fnm{Second} \sur{Author}}\email{iiauthor@gmail.com}
-\equalcont{These authors contributed equally to this work.}
+\noindent
 
-\author[1,2]{\fnm{Third} \sur{Author}}\email{iiiauthor@gmail.com}
-\equalcont{These authors contributed equally to this work.}
-
-\affil*[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{100190}, \state{State}, \country{Country}}}
-
-\affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
-
-\affil[3]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}
-
-%%==================================%%
-%% Sample for unstructured abstract %%
-%%==================================%%
-
-\abstract{The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.}
-
-%%================================%%
-%% Sample for structured abstract %%
-%%================================%%
-
-% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
-% 
-% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
-% 
-% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
-% 
-% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
-
-\keywords{keyword1, Keyword2, Keyword3, Keyword4}
-
-%%\pacs[JEL Classification]{D8, H51}
-
-%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
 
 \begin{otherlanguage}{english}
 \maketitle
+
+
+\vspace{0.1cm} % espacio después del título
+
+\noindent
+\begin{minipage}[t]{0.36\textwidth}
+\raggedright
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1.8}
+
+\begin{tabular}{@{}l@{}}
+\textbf{Fecha de entrega:} 25 de junio de 2025 \\
+\\
+\end{tabular}
+
+\vspace{0.6cm}
+
+\textbf{\includegraphics[width=0.35cm]{example-image}\hspace{0.4em} Articulo }
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.90\textwidth}
+\raggedright
+{\normalsize
+\vspace{0.1cm}
+\textbf{Hernández Jiménez Erick Yael}, 
+\textbf{Miguel Martínez Ángel Gabriel}, 
+\textbf{Serrano Ramos Josué}, 
+\textbf{Valencia San Roman Joel} \\[0.3em]
+\textbf{Dirigido por:} Martínez Acosta Lilian \\[0.2em]
+\textit{Instituto Politécnico Nacional}
+}
+
+\vspace{0.3em}
+
+\hrule
+\vspace{0.3em}
+
+\noindent
+El manejo ineficiente del recurso hídrico, especialmente en el cuidado de jardines domésticos, representa un desafío creciente en la optimización del consumo de agua y la reducción de costos asociados. Los métodos de riego tradicionales a menudo carecen de la adaptabilidad necesaria para responder a las condiciones ambientales en tiempo real, limitando la eficiencia y el ahorro. Ante esta problemática, presentamos el diseño e implementación de un asistente inteligente de riego en tiempo real, que integra un sistema embebido con algoritmos de machine learning. Este sistema, desarrollado para un domicilio específico en Ecatepec de Morelos durante el periodo de febrero a junio de 2025, busca optimizar el consumo de agua en jardines domésticos. Mediante la aplicación de aprendizaje automático, nuestro asistente es capaz de tomar decisiones de riego adaptativas, lo que contribuye directamente a la reducción de los costos hídricos. Los resultados resaltan el potencial de los sistemas inteligentes embebidos para abordar la complejidad del riego eficiente, proporcionando un marco adaptable para la gestión sostenible del agua en entornos residenciales.
+\end{minipage}
+
 \end{otherlanguage}
+
+
 
 \section{Introduction}\label{sec1}
 
