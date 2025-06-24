@@ -1,43 +1,20 @@
-%Version 3.1 December 2024
-% See section 11 of the User Manual for version history
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                                 %%
-%% Please do not use \input{...} to include other tex files.       %%
-%% Submit your LaTeX manuscript as one .tex document.              %%
-%%                                                                 %%
-%% All additional figures and files should be attached             %%
-%% separately and not embedded in the \TeX\ document itself.       %%
-%%                                                                 %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
 
-%%=======================================================%%
-%% to print line numbers in the margin use lineno option %%
-%%=======================================================%%
-
-%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
-
-%%=========================================================================================%%
-%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
-%%=========================================================================================%%
-
-%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
-
-%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove �Numbered� in the optional parenthesis. 
-%%The option is available for: sn-basic.bst, sn-chicago.bst%  
- 
-\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Style for submissions to Nature Portfolio journals
+\usepackage{fancyhdr} % después
 
 %%%% ===================================== %%%%
 %%%% ENCABEZADO VISUAL PERSONALIZADO %%%%
 %%%% ===================================== %%%%
-\usepackage{fancyhdr}
+
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{ragged2e} % para \justifying
 \usepackage{multicol}
+
+
+
+
 
 
 
@@ -55,22 +32,18 @@
 
 % El resto de páginas sin encabezado
 \pagestyle{empty}
-
-
+% Configuración de márgenes para 1 cm en todos los lados
+\setlength{\oddsidemargin}{-0.54cm}   % Margen izquierdo
+\setlength{\evensidemargin}{-0.54cm}  % Margen derecho
+\setlength{\topmargin}{-1.54cm}       % Margen superior
+\setlength{\headheight}{13.6pt}       % Altura del encabezado
+\setlength{\headsep}{0.5cm}           % Espacio entre encabezado y texto
+\setlength{\textheight}{24.7cm}       % Altura del área de texto
+\setlength{\textwidth}{17cm}          % Ancho del área de texto
 % Encabezado solo en esta primera página
 \thispagestyle{firstpage}
 
-%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
-%%\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
-%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
-%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
-%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
-%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
-%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
-%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
 
-%%%% Standard Packages
-%%<additional latex packages if required can be included here>
 
 \usepackage{graphicx}%
 \usepackage{multirow}%
@@ -89,18 +62,6 @@
 \usepackage[spanish]{babel}
 %%%%
 
-%%%%%=============================================================================%%%%
-%%%%  Remarks: This template is provided to aid authors with the preparation
-%%%%  of original research articles intended for submission to journals published 
-%%%%  by Springer Nature. The guidance has been prepared in partnership with 
-%%%%  production teams to conform to Springer Nature technical requirements. 
-%%%%  Editorial and presentation requirements differ among journal portfolios and 
-%%%%  research disciplines. You may find sections in this template are irrelevant 
-%%%%  to your work and are empowered to omit any such section if allowed by the 
-%%%%  journal you intend to submit to. The submission guidelines and policies 
-%%%%  of the journal take precedence. A detailed User Manual is available in the 
-%%%%  template package for technical guidance.
-%%%%%=============================================================================%%%%
 
 %% as per the requirement new theorem styles can be included as shown below
 \theoremstyle{thmstyleone}%
@@ -119,11 +80,39 @@
 
 \raggedbottom
 %%\unnumbered% uncomment this for unnumbered level heads
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec} % por si deseas más control futuro
+
+% Encabezado y pie personalizados
+\pagestyle{fancy}
+
+% Línea superior gris clara
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{gray!60}\leaders\hrule height \headrulewidth\hfill}}
+
+% Línea inferior gris clara
+\renewcommand{\footrulewidth}{0.3pt}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{gray!60}\leaders\hrule height \footrulewidth\hfill}}
+
+% Encabezado: "Artículo" alineado a la izquierda
+\fancyhead[L]{\textbf{Artículo}}
+\fancyhead[C]{}
+\fancyhead[R]{}
+
+% Pie de página: "Nature Machine Intelligence" en azul a la izquierda
+\fancyfoot[L]{\textcolor{cyan!70!black}{\textbf{Nature Machine Intelligence}}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage} % número de página a la derecha
+
 
 \begin{document}
 
+
+
 \makeatletter
-\def\@title{\parbox[t]{\textwidth}{\justifying\LARGE\bfseries Diseño e implementación de asistente inteligente de riego en tiempo real usando \textit{machine learning} en un sistema embebido para reducir costos por consumo de agua en el cuidado del jardín doméstico en el domicilio lote 30 manzana 5, Calle Cerro De La Silla, colonia Sagitario 1, Ecatepec de Morelos en el periodo febrero-junio 2025}}
+\def\@title{\parbox[t]{\textwidth}{\justifying\LARGE\bfseries Asistente inteligente de riego en tiempo real usando machine learning en un sistema embebido para reducir los costos por consumo de agua}}
 \makeatother
 
 
@@ -149,12 +138,12 @@
 \\
 \end{tabular}
 
-\vspace{0.6cm}
+\vspace{0.2cm}
 
-\textbf{\includegraphics[width=0.35cm]{example-image}\hspace{0.4em} Articulo }
+\textbf{\includegraphics[width=0.35cm]{example-image}\hspace{0.3em} Articulo }
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.90\textwidth}
+\begin{minipage}[t]{0.6\textwidth}
 \raggedright
 {\normalsize
 \vspace{0.1cm}
@@ -172,7 +161,8 @@
 \vspace{0.3em}
 
 \noindent
-El manejo ineficiente del recurso hídrico, especialmente en el cuidado de jardines domésticos, representa un desafío creciente en la optimización del consumo de agua y la reducción de costos asociados. Los métodos de riego tradicionales a menudo carecen de la adaptabilidad necesaria para responder a las condiciones ambientales en tiempo real, limitando la eficiencia y el ahorro. Ante esta problemática, presentamos el diseño e implementación de un asistente inteligente de riego en tiempo real, que integra un sistema embebido con algoritmos de machine learning. Este sistema, desarrollado para un domicilio específico en Ecatepec de Morelos durante el periodo de febrero a junio de 2025, busca optimizar el consumo de agua en jardines domésticos. Mediante la aplicación de aprendizaje automático, nuestro asistente es capaz de tomar decisiones de riego adaptativas, lo que contribuye directamente a la reducción de los costos hídricos. Los resultados resaltan el potencial de los sistemas inteligentes embebidos para abordar la complejidad del riego eficiente, proporcionando un marco adaptable para la gestión sostenible del agua en entornos residenciales.
+El manejo ineficiente del recurso hídrico, particularmente en el mantenimiento de jardines domésticos, constituye un reto significativo para optimizar el consumo de agua y disminuir los costos asociados. Los métodos de riego convencionales suelen carecer de la flexibilidad requerida para adaptarse a las condiciones ambientales en tiempo real, lo que restringe su eficiencia y potencial de ahorro. En respuesta a esta problemática, se presenta el diseño e implementación de un asistente inteligente de riego en tiempo real, basado en un sistema embebido que incorpora algoritmos de aprendizaje automático. Este sistema, desarrollado durante un periodo de 4 meses, tiene como objetivo optimizar el uso del agua en jardines residenciales. A través del empleo de técnicas de aprendizaje automático, el asistente logra tomar decisiones de riego adaptativo, contribuyendo directamente a la reducción de los costos asociados al consumo hídrico. Los resultados obtenidos subrayan el potencial de los sistemas inteligentes embebidos para enfrentar los desafíos del riego eficiente, ofreciendo un enfoque adaptable para la gestión sostenible del agua en contextos residenciales.
+
 \end{minipage}
 
 \end{otherlanguage}
@@ -196,25 +186,43 @@ Con el objetivo de resolver esta situación, el trabajo se centra en el diseño 
 
 \subsection{Variación de la temperatura ambiente}
 
-A lo largo de los 10 días monitoreados, las temperaturas diarias se mantuvieron en un rango de 0°C a 35°C, con un promedio general de 23.38°C y una desviación estándar de 5.87°C para las temperaturas registradas. Además, se observó un descenso de temperatura del cuarto al quinto día, pasando de 25.2°C a 21.9°C. Posteriormente, la temperatura mostró una tendencia al alza.
+
+
+
 
 \begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.9\textwidth]{assets/temperatura_promedio.png}
-  \caption{Temperatura promedio diaria.}
-  \label{fig2}
+    \centering
+    \includegraphics[width=0.9\textwidth]{assets/temperatura_promedio.png}
+
+    \vspace{0.4cm}
+
+    \noindent
+    \begin{minipage}[t]{0.5\textwidth}
+        \raggedright
+        \textbf{Fig. 1 Temperatura.} Este gráfico muestra la evolución promedio de la temperatura registrada por los sensores en el jardín doméstico durante el periodo.
+
+        \
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.5\textwidth}
+        \justifying
+        Este gráfico muestra la evolución promedio de la temperatura registrada por los sensores en el jardín doméstico durante el periodo febrero-junio de 2025. Se observan patrones diarios de temperatura, con picos más altos alrededor del mediodía y descensos durante la noche.
+    \end{minipage}
+
+    \vspace{0.5cm}
+    \hrule
 \end{figure}
 
-Con estos datos, se encontró una correlación positiva moderada entre las temperaturas registradas y la frecuencia de los eventos de riego (coeficiente de Pearson de 0.4602), indicando que a mayores temperaturas, la frecuencia de riego tiende a aumentar.
 
-Sin embargo, se identificaron dos casos atípicos en los datos de temperatura y riego: una lectura de temperatura de 0°C y un evento de riego único registrado a 26°C.
+    
+    
+    \label{fig2}
 
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.9\textwidth]{assets/temperatura_vs_riego.png}
-  \caption{Frecuencia de riego contra temperatura ambiente.}
-  \label{fig3}
-\end{figure}
+
+
+
+
+
 
 Con estos resultados, se detallan las condiciones de temperatura y su correlación con el riego. La siguiente sección explora las variaciones observadas en las lecturas de humedad a lo largo del periodo de estudio.
 
@@ -340,26 +348,35 @@ El análisis exploratorio de los datos fue realizado externamente mediante herra
 %%===========================================================================================%%
 \begin{thebibliography}{4}
 
+
 \bibitem{ref1}
-{Organización de las Naciones Unidas}.
-\newblock \bibinfo{title}{{Objetivo 11: Lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles}} (\bibinfo{year}{2023}).
-\newblock \bibinfo{note}{[En línea]. Disponible: \url{https://www.un.org/sustainabledevelopment/es/water-and-sanitation/}. [Último acceso: 21 06 2025]}.
+Organización de las Naciones Unidas.
+\textit{Objetivo 11: Lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles}.
+Organización de las Naciones Unidas, 2023.
+[En línea]. Disponible en: \url{https://www.un.org/sustainabledevelopment/es/water-and-sanitation/}.
+[Último acceso: 21 06 2025].
 
 \bibitem{ref2}
-\bibinfo{author}{Vega López, E.}
-\newblock \bibinfo{title}{{Agua, crecimiento económico y bienestar social en México}}.
-\newblock \emph{\bibinfo{journal}{Revista de Economía Mexicana Anuario UNAM}} \textbf{\bibinfo{volume}{I}}, \bibinfo{pages}{233, 294} (\bibinfo{year}{2023}).
+E. Vega López.
+\textit{Agua, crecimiento económico y bienestar social en México}.
+Revista de Economía Mexicana Anuario UNAM, vol. I, no. 8, pp. 233–294, 2023.
 
 \bibitem{ref3}
-\bibinfo{author}{Glória, A.}, \bibinfo{author}{Cardoso, J.} \& \bibinfo{author}{Sebastiäo, P.}
-\newblock \bibinfo{title}{{Sustainable Irrigation System for Farming Supported by Machine Learning and Real-Time Sensor Data}}.
-\newblock \emph{\bibinfo{journal}{Sensors}} (\bibinfo{year}{2021}).
+A. Glória, J. Cardoso y P. Sebastiäo.
+\textit{Sustainable Irrigation System for Farming Supported by Machine Learning and Real-Time Sensor Data}.
+Sensors, 2021.
 
 \bibitem{ref4}
-{Comisión del Agua del Estado de México}.
-\newblock \bibinfo{title}{{Tarifas de agua potable, drenaje y tratamiento de aguas residuales}} (\bibinfo{year}{2024}).
-\newblock \bibinfo{note}{[En línea]. Disponible: \url{https://caem.edomex.gob.mx/tarifas_agua_potable_drenaje_y_tratamiento_aguas_residuales}. [Último acceso: 21 06 2025]}.
+Comisión del Agua del Estado de México.
+\textit{Tarifas de agua potable, drenaje y tratamiento de aguas residuales}.
+Agencia Digital del Estado de México, 2024.
+[En línea]. Disponible en: \url{https://caem.edomex.gob.mx/tarifas_agua_potable_drenaje_y_tratamiento_aguas_residuales}.
+[Último acceso: 21 06 2025].
+
+
+
 
 \end{thebibliography}
+
 
 \end{document}
