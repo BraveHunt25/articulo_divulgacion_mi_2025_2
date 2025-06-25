@@ -174,39 +174,76 @@ En diversos estudios se propusieron soluciones para la gestión del agua, incluy
 Para abordar esta brecha y desarrollar una solución práctica y económica que sea aplicable dentro de entornos domésticos, este estudio aborda la problemática específica del alto consumo de agua en el cuidado de jardines domésticos, mostrando el desarrollo y la implementación en el domicilio lote 30, manzana 5, Calle Cerro de la Silla, colonia Sagitario 1, Ecatepec de Morelos, donde se ha contabilizado un promedio de 240 L/mes para un jardín de 49 $m^2$. Esta vivienda es considerada como una unidad doméstica, media y de uso medido, por lo que el costo de consumo de agua, considerando solo al jardín, se estima en \$108/mes y \$1,295/año\cite{ref4}.
 
 Con el objetivo de resolver esta situación, el trabajo se centra en el diseño e implementación de un asistente inteligente de riego en tiempo real, buscando reducir los costos relacionados con el consumo de agua en este jardín doméstico. El enfoque metodológico adoptado es de tipo mixto, combinando métodos cuantitativos para evaluar el impacto técnico del sistema y cualitativos para analizar la percepción y aceptación de los usuarios.
-\end{multicols}
 \section*{Resultados}\label{sec2}
 \subsection*{Variación de la temperatura ambiente}
+Una de las variables consideradas por \cite{ref12} es la temperatura por su estrecha relación con la transpiración del agua; por esto, usando un sensor de temperatura, se integra esta variable para entrenar el modelo de regresión logística y determinar la administración del agua para regar el jardín de estudio. Analizar la variación de este fenómeno y cómo el sistema registra estos datos es crucial para comprender el funcionamiento final del asistente de riego.
+
+En la figura \ref{fig:temperatura_promedio} se reflejan todos los valores obtenidos en el transcurso del periodo de estudio y los promedios diarios de temperatura. Mientras que en la figura \ref{fig:temperatura_desviacion} se reflejan datos estadísticos de estos valores de temperatura registrados. 
+
+A pesar de la variabilidad de los valores recopilados, al promediar los valores por día, se logra reflejar el comportamiento general de la temperatura en el espacio de estudio. Estos valores tienen un rango más corto en contraste con los valores originales, que va de los 21.9°C hasta los 25.9°C.
+
+El periodo que mejor refleja el comportamiento de la temperatura comprende del 9 hasta el 12 de junio, donde se puede observar el siguiente patrón si se omiten los datos donde la temperatura es de 0°C: diariamente, las temperaturas más altas se registran al mediodía, mientras que los valores más bajos se observan entre la medianoche y el mediodía.
+    
+%%----------- Figura ------------
+\end{multicols}
 \begin{figure}[!ht]
+    \hrule
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/temperatura_promedio.png}
-    \caption{Temperatura promedio registrada durante el periodo experimental}
-    \label{fig:temperatura}
+    \includegraphics[width=0.7\textwidth]{assets/temperatura_continua_y_promedio.eps}
+    \caption{Variación y promedio diario de la temperatura ambiente durante el periodo experimental.}
+    \label{fig:temperatura_promedio}
 
     \vspace{0.4cm}
 
     \noindent
-    \begin{minipage}[t]{0.5\textwidth}
-        \raggedright
-        Este gráfico muestra la evolución promedio de la temperatura registrada por los sensores en el jardín doméstico durante el periodo.
+    \begin{minipage}[t]{0.49\textwidth}
+        \justifying
+        En el transcurso del periodo experimental, el asistente de riego registraba el valor de la temperatura ambiente mediante un sensor de temperatura que se describe en el apartado de Métodos. En la figura \ref{fig:temperatura_promedio}, se muestra un rango de los valores registrados que va desde los 0°C hasta los 35°C con un comportamiento irregular y discontinuo.
 
-        \
+        Este rango de 35 unidades se debe en mayor parte
     \end{minipage}%
     \hfill
-    \begin{minipage}[t]{0.5\textwidth}
+    \begin{minipage}[t]{0.49\textwidth}
         \justifying
-        Registrada por los sensores en el jardín doméstico durante el periodo febrero-junio de 2025. Se observan patrones diarios de temperatura, con picos más altos alrededor del mediodía y descensos durante la noche.
-    \end{minipage}
+\noindent a la inaccesibilidad del módulo de recolección de datos a los valores recopilados por el módulo de riego, ocasionando descensos abruptos a los 0°C. Aunado a esto, no se tiene registro de la variabilidad de la temperatura en dos periodos: del 5 de junio, desde la 01:00 hasta las 22:00 horas, y del 6 de junio, desde las 00:00 hasta las 12:00 horas.
+    
+	\end{minipage}
+
+    \vspace{0.5cm}
+    %\caption{Temperatura promedio registrada durante el experimento}
+    \hrule
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/temperatura_promedio_y_estadisticas.eps}
+    \caption{Promedio diario, promedio total y dispersión de la temperatura ambiente durante el periodo experimental.}
+    \label{fig:temperatura_desviacion}
+
+    \vspace{0.4cm}
+
+    \noindent
+    \begin{minipage}[t]{0.45\textwidth}
+        \justifying
+        En la figura \ref{fig:temperatura_desviacion} se muestran los promedios diarios de temperatura, la media total de 23.38°C y la dispersión de $\pm$5.87°C de todos los registros de temperatura recopilados. Estos datos son relevantes para comprender el comportamiento del asistente de riego.
+	\end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \justifying
+        El promedio de los primeros tres días se mantuvo constante debido a la invariabilidad de las lecturas, sin embargo, hubo un descenso del 5 al 7 de junio al valor medio diario más bajo del periodo de estudio. Posteriormente, la temperatura ascendió en el resto del periodo hasta una media de 24°C.
+
+\end{minipage}
 
     \vspace{0.5cm}
     \hrule
     %\caption{Temperatura promedio registrada durante el experimento}
-    \label{fig:temperatura_promedio}
 \end{figure}
 
 \begin{multicols}{2}
-Con estos resultados, se detallan las condiciones de temperatura y su correlación con el riego. La siguiente sección explora las variaciones observadas en las lecturas de humedad a lo largo del periodo de estudio.
+\justifying
+%%--------------------------------
 
+Además de la temperatura, \cite{ref12} menciona la humedad como la principal variable neccesaria para monitorear la retención de agua en la tierra de los jardines domésticos. Por eso, en el siguiente apartado, se discuten los valores obtenidos al vigilar las vaariaciones de este fenómeno en el espacio de estudio.
 \subsection*{Monitoreo de humedad}
 
 La humedad promedio del suelo, medida durante el período de estudio de 10 días, oscila entre 707.25 y 802.83 unidades en una escala de 0 (presencia total de humedad) a 4500(ausencia total de humedad) establecida por el sensor de humedad implementado dentro del sistema de riego según los datos registrados.
@@ -215,10 +252,12 @@ Los primeros días del periodo se identifican como una fase de calibración y ad
 
 Al pasar el cuarto día, los valores se van normalizando hasta lograr una tendencia uniforme por el resto del periodo, siendo reflejado en la frecuencia de riego por día, mostrando la adaptación del sistema a su entorno al reducir la frecuencia.  
 
+Si bien un periodo de observación más extenso permitiría identificar esta tendencia, los resultados actuales ya evidencian una mejora significativa en la capacidad del sistema para mantener condiciones de humedad constantes, lo cual es fundamental para la optimización del consumo de agua en entornos domésticos que será explorada a detalle en la siguiente sección.
 \end{multicols}
+\newpage
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/humedad_promedio.png}
+    \includegraphics[width=1\textwidth]{assets/humedad_promedio.png}
 
     \caption{Humedad promedio registrada durante el periodo experimental}
     \label{fig:humedad_del_suelo}
@@ -226,16 +265,16 @@ Al pasar el cuarto día, los valores se van normalizando hasta lograr una tenden
     \vspace{0.4cm}
 
     \noindent
-    \begin{minipage}[t]{0.5\textwidth}
-        \raggedright
+    \begin{minipage}[t]{0.49\textwidth}
+        \justifying
         Este gráfico muestra la evolución promedio de la humedad registrada por los sensores en el jardín doméstico durante el periodo.
 
-        \
+        Muestra el proceso de normalización de la humedad
     \end{minipage}%
     \hfill
-    \begin{minipage}[t]{0.5\textwidth}
+    \begin{minipage}[t]{0.49\textwidth}
         \justifying
-        Muestra el proceso de normalización de la humedad del suelo del jardín doméstico. Con valores altos en los primeros días indicando poca humedad en el suelo, para posteriormente pasar por un día de sobreirrigación y finalmente mantener valores dentro del mismo rango.
+        \noindent del suelo del jardín doméstico. Con valores altos en los primeros días indicando poca humedad en el suelo, para posteriormente pasar por un día de sobreirrigación y finalmente mantener valores dentro del mismo rango.
     \end{minipage}
 
     \vspace{0.5cm}
@@ -243,50 +282,78 @@ Al pasar el cuarto día, los valores se van normalizando hasta lograr una tenden
 \end{figure}
 
 \begin{multicols}{2}
-
-Si bien un periodo de observación más extenso permitiría identificar esta tendencia, los resultados actuales ya evidencian una mejora significativa en la capacidad del sistema para mantener condiciones de humedad constantes, lo cual es fundamental para la optimización del consumo de agua en entornos domésticos que será explorada a detalle en la siguiente sección.
+\justifying
+%%--------------------------------
 
 \subsection*{Consumo de agua}
-Durante los 10 días de monitoreo de la fase de implementación del asistente inteligente de riego se registraron 2 días cuya frecuencia de riego fue de dos veces. Posteriormente, cada dos días se regaba una vez. 
-Considerando que, por cada apertura de las válvulas, se daba el paso a 4.93 L; en los primeros dos días se hizo un gasto diario de 9.86 L; luego, el gasto se redujo a 4.93 L por cada dos días. 
+Durante los 10 días de monitoreo de la fase de implementación del asistente inteligente de riego se registraron 2 días cuya frecuencia de riego fue de dos veces. Posteriormente, cada dos días se regaba una vez. Esto se puede ver en la figura \ref{fig:activaciones_riego_diarias}.
 
+En la figura \ref{fig:activaciones_riego_dispersion} se puede observar que la media general de frecuencia de riego fue de 0.8 veces, sin embargo, ya que hubo una dispersión de $\pm$0.79, aún se necesitó de más tiempo de aplicación para reducir esta dispersión y obtener un promedio de actividades de riego más preciso.
+
+Considerando que, por cada apertura de las válvulas, se daba el paso a 4.93 L; en los primeros dos días se hizo un gasto diario de 9.86 L; luego, el gasto se redujo a 4.93 L por cada dos días. Esto se puede observar en la figura \ref{fig:consumo}.
+
+De igual forma, en la gráfica \ref{fig:consumo_estadisticas} se puede observar que, considerando el mismo volumen consumido por cada activación de las válvulas, se hizo un consumo medio de 3.94 L con una desviación estándar de 3.89 L. Tal como en la dispersión de la frecuencia de activaciones de las válvulas para regar el jardín, la dispersión con una magnitud absoluta similar a la media indica que los datos están muy dispersos y que se debe considerar más tiempo de aplicación para obtener datos más precisos. 
+
+En comparación, el sistema de riego tradicional tiene una frecuencia de riego de una vez al día en un horario fijo con el ajuste manual del volumen de riego ante la presencia de lluvia a lo largo del día, consumiendo 78 L para un periodo equivalente. Estos resultados y datos recabados se discuten en la siguiente sección.
+
+%%----------- Figura ------------
 \end{multicols}
-
-\begin{figure}[H]
+\begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/eventos_por_dia.png}
-
-    \caption{Eventos de riego por día durante el periodo experimental}
-    \label{fig:riego}
+    \includegraphics[width=1\textwidth]{assets/activaciones_riego_diarias.eps}
+    \caption{Activaciones de riego diaria durante el periodo experimental.}
+    \label{fig:activaciones_riego_diarias}
 
     \vspace{0.4cm}
 
     \noindent
-    \begin{minipage}[t]{0.5\textwidth}
-        \raggedright
-        Este gráfico muestra la variacion del riego durnate el periodo de 10 días
-
-        \
-    \end{minipage}%
-    \hfill
-    \begin{minipage}[t]{0.5\textwidth}
+    \begin{minipage}[t]{0.45\textwidth}
         \justifying
-           La variación en los eventos de riego que muestra el gráfico indica el trabajo del sistema de riego, el cual se fue ajustando según las necesidades del jardín.
-    \end{minipage}
+	\end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \justifying
+
+\end{minipage}
 
     \vspace{0.5cm}
     \hrule
+    %\caption{Temperatura promedio registrada durante el experimento}
 \end{figure}
 
+\newpage
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/activaciones_riego_promedio_y_estadisticas.eps}
+    \caption{Promedio de activaciones de riego, media general y dispersión de la frecuencia de riego durante el periodo experimental.}
+    \label{fig:activaciones_riego_dispersion}
+
+    \vspace{0.4cm}
+
+    \noindent
+    \begin{minipage}[t]{0.45\textwidth}
+        \justifying
+	\end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \justifying
+
+\end{minipage}
+
+    \vspace{0.5cm}
+    \hrule
+    %\caption{Temperatura promedio registrada durante el experimento}
+\end{figure}
 \begin{multicols}{2}
-  Por otro lado, se puede describir una frecuencia de riego de 0.8 veces al día y una desviación estándar de 0.789 veces. Estos datos se traducen a un consumo medio de 3.944 L con una desviación estándar de 3.889 L. 
-  Así, para analizar la operación del sistema una vez estabilizado, se calcularon las métricas excluyendo los dos primeros días de implementación. La media es de 0.5 veces al día con una desviación estándar de 0.536 veces, implicando un consumo medio de 2.465 L con una desviación de 2.635 L.
+\justifying
+%%--------------------------------
 \end{multicols}
 
 
-\begin{figure}[H]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/consumo_diario.png}
+    \includegraphics[width=1\textwidth]{assets/consumo_diario_barras.eps}
 
     \caption{Consumo diario de agua durante el periodo experimental}
     \label{fig:consumo}
@@ -309,8 +376,38 @@ Considerando que, por cada apertura de las válvulas, se daba el paso a 4.93 L; 
 \end{figure}
 
 \begin{multicols}{2}
-  
-En comparación, el sistema de riego tradicional tiene una frecuencia de riego de una vez al día en un horario fijo con el ajuste manual del volumen de riego ante la presencia de lluvia a lo largo del día, consumiendo 78 L para un periodo equivalente. Estos resultados y datos recabados se discuten en la siguiente sección.
+\justifying
+%%--------------------------------
+
+%%----------- Figura ------------
+\end{multicols}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/consumo_diario_promedio_y_estadisticas.eps}
+    \caption{Promedio diario, promedio total y dispersión del consumo de agua durante el periodo experimental.}
+    \label{fig:consumo_estadisticas}
+
+    \vspace{0.4cm}
+
+    \noindent
+    \begin{minipage}[t]{0.45\textwidth}
+        \justifying
+	\end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \justifying
+
+\end{minipage}
+
+    \vspace{0.5cm}
+    \hrule
+    %\caption{Temperatura promedio registrada durante el experimento}
+\end{figure}
+\newpage
+
+\begin{multicols}{2}
+\justifying
+%%--------------------------------
 
 \section*{Discusión}
 
@@ -469,7 +566,7 @@ Adafruit, 2025.
 Steren.
 \textit{Ficha técnica Relé}
 Steren, 2025.
-[En línea]. Disponible en:\url{https://www.steren.com.mx/relevador-compacto-de-1-polo-2-tiros-spdt-y-bobina-de-24-vcc.html}
+[En línea]. Disponible en:\href{https://www.steren.com.mx/relevador-compacto-de-1-polo-2-tiros-spdt-y-bobina-de-24-vcc.html}{https://www.steren.com.mx/relevador-compacto-de-1-polo-2-tiros-spdt-y- bobina-de-24-vcc.html}
 [Último acceso: 24 06 2025] 
 
 \bibitem{ref11}
@@ -478,6 +575,13 @@ Texas Instruments.
 Texas Instruments, 2025.
 [En línea]. Disponible en:\url{https://www.ti.com/lit/ds/symlink/lm2596.pdf}
 [Último acceso: 24 06 2025] 
+
+\bibitem{ref12}
+L. I. Chang Wong
+\textit{Diseño de un sistema automatizado de riego por goteo para aumentar la producción de maíz en la hacienda Durand}
+Universidad Católica Santo Toribio de Mogrovejo, 2020.
+[En línea]. Disponible en:\url{https://tesis.usat.edu.pe/handle/20.500.12423/2799}
+[Último acceso: 08 03 2025]
 
 \end{thebibliography}
 \end{multicols}
