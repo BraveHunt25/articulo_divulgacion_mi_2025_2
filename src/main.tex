@@ -139,7 +139,7 @@
 
 \vspace{0.2cm}
 
-\textbf{\includegraphics[width=0.35cm]{example-image}\hspace{0.3em} Articulo }
+\textbf{\includegraphics[width=0.35cm]{example-image}\hspace{0.3em} Artículo }
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.6\textwidth}
@@ -176,20 +176,21 @@ Para abordar esta brecha y desarrollar una solución práctica y económica que 
 Con el objetivo de resolver esta situación, el trabajo se centra en el diseño e implementación de un asistente inteligente de riego en tiempo real, buscando reducir los costos relacionados con el consumo de agua en este jardín doméstico. El enfoque metodológico adoptado es de tipo mixto, combinando métodos cuantitativos para evaluar el impacto técnico del sistema y cualitativos para analizar la percepción y aceptación de los usuarios.
 \section*{Resultados}\label{sec2}
 \subsection*{Variación de la temperatura ambiente}
-Una de las variables consideradas por \cite{ref12} es la temperatura por su estrecha relación con la transpiración del agua; por esto, usando un sensor de temperatura, se integra esta variable para entrenar el modelo de regresión logística y determinar la administración del agua para regar el jardín de estudio. Analizar la variación de este fenómeno y cómo el sistema registra estos datos es crucial para comprender el funcionamiento final del asistente de riego.
+Una de las variables consideradas por \cite{ref12} es la temperatura por su estrecha relación con la transpiración del agua; por esto, usando un sensor de temperatura, se integra esta variable para entrenar el modelo de regresión logística y determinar la administración del agua para regar el jardín de estudio. Analizar la variación de este fenómeno y el registro de los datos por parte del sistema es crucial para comprender el funcionamiento final del asistente de riego.
 
 En la figura \ref{fig:temperatura_promedio} se reflejan todos los valores obtenidos en el transcurso del periodo de estudio y los promedios diarios de temperatura. Mientras que en la figura \ref{fig:temperatura_desviacion} se reflejan datos estadísticos de estos valores de temperatura registrados. 
 
 A pesar de la variabilidad de los valores recopilados, al promediar los valores por día, se logra reflejar el comportamiento general de la temperatura en el espacio de estudio. Estos valores tienen un rango más corto en contraste con los valores originales, que va de los 21.9°C hasta los 25.9°C.
 
-El periodo que mejor refleja el comportamiento de la temperatura comprende del 9 hasta el 12 de junio, donde se puede observar el siguiente patrón si se omiten los datos donde la temperatura es de 0°C: diariamente, las temperaturas más altas se registran al mediodía, mientras que los valores más bajos se observan entre la medianoche y el mediodía.
+
     
 %%----------- Figura ------------
 \end{multicols}
 \begin{figure}[!ht]
     \hrule
+    \vspace{0.2cm}
     \centering
-    \includegraphics[width=0.7\textwidth]{assets/temperatura_continua_y_promedio.eps}
+    \includegraphics[width=0.8\textwidth]{assets/temperatura_continua_y_promedio.eps}
     \caption{Variación y promedio diario de la temperatura ambiente durante el periodo experimental.}
     \label{fig:temperatura_promedio}
 
@@ -198,15 +199,17 @@ El periodo que mejor refleja el comportamiento de la temperatura comprende del 9
     \noindent
     \begin{minipage}[t]{0.49\textwidth}
         \justifying
-        En el transcurso del periodo experimental, el asistente de riego registraba el valor de la temperatura ambiente mediante un sensor de temperatura que se describe en el apartado de Métodos. En la figura \ref{fig:temperatura_promedio}, se muestra un rango de los valores registrados que va desde los 0°C hasta los 35°C con un comportamiento irregular y discontinuo.
+         En el transcurso del periodo experimental, el asistente de riego registraba el valor de la temperatura ambiente mediante un sensor de temperatura que se describe en el apartado de Métodos. En la figura \ref{fig:temperatura_promedio}, se muestra un rango de los valores registrados que va desde los 0°C hasta los 35°C con un comportamiento irregular y discontinuo.
 
-        Este rango de 35 unidades se debe en mayor parte
+        Este rango de 35 unidades se debe en mayor parte a la inaccesibilidad del módulo de recolección de datos a los valores recopilados por el módulo de riego,
+
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.49\textwidth}
         \justifying
-\noindent a la inaccesibilidad del módulo de recolección de datos a los valores recopilados por el módulo de riego, ocasionando descensos abruptos a los 0°C. Aunado a esto, no se tiene registro de la variabilidad de la temperatura en dos periodos: del 5 de junio, desde la 01:00 hasta las 22:00 horas, y del 6 de junio, desde las 00:00 hasta las 12:00 horas.
-    
+        \noindent ocasionando descensos abruptos a los 0°C. Aunado a esto, no se tiene registro de la variabilidad de la temperatura en dos periodos: del 5 de junio, desde la 01:00 hasta las 22:00 horas, y del 6 de junio, desde las 00:00 hasta las 12:00 horas.
+
+        Esta ausencia de valores registrados se debe, en mayor parte, a problemas en la implementación inicial del asistente, lo que ocasionó que, inicialmente, el sistema haya tomado decisiones sin considerar la temperatura con la relevancia para la que fue diseñado.   
 	\end{minipage}
 
     \vspace{0.5cm}
@@ -242,6 +245,9 @@ El periodo que mejor refleja el comportamiento de la temperatura comprende del 9
 \begin{multicols}{2}
 \justifying
 %%--------------------------------
+El periodo que mejor refleja el comportamiento de la temperatura comprende del 9 hasta el 12 de junio, donde se puede observar el siguiente patrón si se omiten los datos donde la temperatura es de 0°C: diariamente, las temperaturas más altas se registran al mediodía, mientras que los valores más bajos se observan entre la medianoche y el mediodía. 
+
+Con esto, se puede indicar que el asistente contó con valores más congruentes con el estado del jardín doméstico, especialmente desde el 9 de junio, adaptándose mejor a las condiciones como se discute en el apartado de consumo de agua.
 
 Además de la temperatura, \cite{ref12} menciona la humedad como la principal variable neccesaria para monitorear la retención de agua en la tierra de los jardines domésticos. Por eso, en el siguiente apartado, se discuten los valores obtenidos al vigilar las vaariaciones de este fenómeno en el espacio de estudio.
 \subsection*{Monitoreo de humedad}
@@ -267,14 +273,14 @@ Si bien un periodo de observación más extenso permitiría identificar esta ten
     \noindent
     \begin{minipage}[t]{0.49\textwidth}
         \justifying
-        Este gráfico muestra la evolución promedio de la humedad registrada por los sensores en el jardín doméstico durante el periodo.
+        Esta figura muestra la evolución promedio de la humedad registrada por los sensores en el jardín doméstico durante el periodo.
 
         Muestra el proceso de normalización de la humedad
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.49\textwidth}
         \justifying
-        \noindent del suelo del jardín doméstico. Con valores altos en los primeros días indicando poca humedad en el suelo, para posteriormente pasar por un día de sobreirrigación y finalmente mantener valores dentro del mismo rango.
+        \noindent del suelo del jardín doméstico. Con valores altos en los primeros días indicando poca humedad en el suelo, para, posteriormente, pasar por un día de sobreirrigación y finalmente mantener valores dentro del mismo rango.
     \end{minipage}
 
     \vspace{0.5cm}
@@ -288,11 +294,11 @@ Si bien un periodo de observación más extenso permitiría identificar esta ten
 \subsection*{Consumo de agua}
 Durante los 10 días de monitoreo de la fase de implementación del asistente inteligente de riego se registraron 2 días cuya frecuencia de riego fue de dos veces. Posteriormente, cada dos días se regaba una vez. Esto se puede ver en la figura \ref{fig:activaciones_riego_diarias}.
 
-En la figura \ref{fig:activaciones_riego_dispersion} se puede observar que la media general de frecuencia de riego fue de 0.8 veces, sin embargo, ya que hubo una dispersión de $\pm$0.79, aún se necesitó de más tiempo de aplicación para reducir esta dispersión y obtener un promedio de actividades de riego más preciso.
+En la figura \ref{fig:activaciones_riego_dispersion} se puede contemplar que la media general de frecuencia de riego fue de 0.8 veces, sin embargo, ya que hubo una dispersión de $\pm$0.79, aún se necesitó de más tiempo de aplicación para reducir esta dispersión y obtener un promedio de actividades de riego más preciso.
 
-Considerando que, por cada apertura de las válvulas, se daba el paso a 4.93 L; en los primeros dos días se hizo un gasto diario de 9.86 L; luego, el gasto se redujo a 4.93 L por cada dos días. Esto se puede observar en la figura \ref{fig:consumo}.
+Considerando que, por cada apertura de las válvulas, se daba el paso a 4.93 L; en los primeros dos días se hizo un gasto diario de 9.86 L; luego, el gasto se redujo a 4.93 L por cada dos días. Esto se puede notar en la figura \ref{fig:consumo}.
 
-De igual forma, en la gráfica \ref{fig:consumo_estadisticas} se puede observar que, considerando el mismo volumen consumido por cada activación de las válvulas, se hizo un consumo medio de 3.94 L con una desviación estándar de 3.89 L. Tal como en la dispersión de la frecuencia de activaciones de las válvulas para regar el jardín, la dispersión con una magnitud absoluta similar a la media indica que los datos están muy dispersos y que se debe considerar más tiempo de aplicación para obtener datos más precisos. 
+De igual forma, en la figura \ref{fig:consumo_estadisticas} se puede observar que, considerando el mismo volumen consumido por cada activación de las válvulas, se hizo un consumo medio de 3.94 L con una desviación estándar de 3.89 L. Tal como en la dispersión de la frecuencia de activaciones de las válvulas para regar el jardín, la dispersión con una magnitud absoluta similar a la media indica que los datos están muy dispersos y que, si se continuara por un periodo más extenso de estudio, se podrían obtener datos más precisos.. 
 
 En comparación, el sistema de riego tradicional tiene una frecuencia de riego de una vez al día en un horario fijo con el ajuste manual del volumen de riego ante la presencia de lluvia a lo largo del día, consumiendo 78 L para un periodo equivalente. Estos resultados y datos recabados se discuten en la siguiente sección.
 
@@ -363,12 +369,12 @@ En comparación, el sistema de riego tradicional tiene una frecuencia de riego d
     \noindent
     \begin{minipage}[t]{0.48\textwidth}
         \raggedright
-        Este gráfico muestra el uso del agua durante el periodo experimental de este proyecto.
+        Esta figura muestra el uso del agua durante el periodo experimental de este proyecto.
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.48\textwidth}
         \justifying
-        En este gráfico se observa cómo fue reduciéndose el consumo de agua por día, mostrando el ajuste del sistema de riego a las necesidades del jardín.
+        En esta figura se observa cómo fue reduciéndose el consumo de agua por día, mostrando el ajuste del sistema de riego a las necesidades del jardín.
     \end{minipage}
 
     \vspace{0.5cm}
@@ -481,13 +487,13 @@ El análisis exploratorio de los datos fue realizado externamente mediante herra
 
 En un periodo de 10 días, se logró una notable reducción del 49.44\% en el consumo de agua comparado con el riego tradicional, este hallazgo no solo confirma que el sistema es capaz de generar ahorros económicos directos para la persona que lo use, sino que también válida su potencial para contribuir a la sostenibilidad hídrica en el ámbito residencial y a las investigaciones en el ámbito tecnológico. La efectividad del sistema se fundamenta en su capacidad para monitorear variables ambientales clave como la temperatura y la humedad del suelo, adaptando la frecuencia de riego de manera inteligente para evitar el sobre-riego y garantizar el suministro adecuado de agua.
 
-Si bien el periodo de monitoreo de pocos días representa una limitación para identificar patrones estacionales a largo plazo y las condiciones del sistema a condiciones climáticas extremas, el estudio valida la eficiencia del algoritmo y la robustez del diseño. Este trabajo también contribuye al campo al ofrecer una solución práctica, de bajo costo y adaptada al contexto doméstico, cerrando la brecha existente en el mercado. Para futuras investigaciones, se plantea la extensión del periodo de monitoreo y la integración de pronósticos meteorológicos para una gestión más predictiva.
+Si bien el periodo de monitoreo de pocos días representa una limitación para identificar patrones estacionales a largo plazo y las condiciones del sistema a condiciones climáticas extremas, el estudio valida la eficiencia del algoritmo y la robustez del diseño. Este trabajo, adicionalmente, contribuye al campo al ofrecer una solución práctica, de bajo costo y adaptada al contexto doméstico, cerrando la brecha existente en el mercado. Para futuras investigaciones, se plantea la extensión del periodo de monitoreo y la integración de pronósticos meteorológicos para una gestión más predictiva.
 
 \section*{Disponibilidad de datos}
 Para acceder a los datos de entrenaiento del modelo utilizado en este proyecto puede acceder a este enlace donde encontrará un archivo CSV que le ayudará a entrenar el modelo para realizar predicciones sobre el jarín en el que se desee implementar \url{https://github.com/BraveHunt25/asistente-inteligente-de-riego/tree/main/Datos}
 
 \section*{Disponibilidad de código}
-Para poder observar mejor el codigo utilizado en la implementación de este sistema de riego inteligente puede acceder al siguiente repositorio \url{https://github.com/BraveHunt25/asistente-inteligente-de-riego}, donde encontrará el código para cada uno de los modulos del sistema de riego, el modulo emisor, el modulo de procesamiento y el modulo de control de las válvulas.
+Para consultar el codigo utilizado en la implementación de este sistema de riego inteligente puede acceder al siguiente repositorio \url{https://github.com/BraveHunt25/asistente-inteligente-de-riego}, donde encontrará el código para cada uno de los modulos del sistema de riego, el modulo emisor, el modulo de procesamiento y el modulo de control de las válvulas.
 %%===========================================================================================%%
 %% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
 %% system, please include the references within the manuscript file itself. You may do this  %%
