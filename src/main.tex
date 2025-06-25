@@ -235,7 +235,7 @@ Al pasar el cuarto día, los valores se van normalizando hasta lograr una tenden
     \hfill
     \begin{minipage}[t]{0.5\textwidth}
         \justifying
-        Muestra como empieza a normalizarse la humedad del suelo del jardín doméstico, con valores altos en los primeros días indicando poca humedad para pasar por un día de sobreirrigación y finalmente obtener la normalización de la humedad del suelo.
+        Muestra el proceso de normalización de la humedad del suelo del jardín doméstico. Con valores altos en los primeros días indicando poca humedad en el suelo, para posteriormente pasar por un día de sobreirrigación y finalmente mantener valores dentro del mismo rango.
     \end{minipage}
 
     \vspace{0.5cm}
@@ -276,7 +276,6 @@ Considerando que, por cada apertura de las válvulas, se daba el paso a 4.93 L; 
 
     \vspace{0.5cm}
     \hrule
-    \label{fig:eventos_riego}
 \end{figure}
 
 \begin{multicols}{2}
@@ -295,22 +294,20 @@ Considerando que, por cada apertura de las válvulas, se daba el paso a 4.93 L; 
     \vspace{0.4cm}
 
     \noindent
-    \begin{minipage}[t]{0.5\textwidth}
+    \begin{minipage}[t]{0.48\textwidth}
         \raggedright
-        Este gráfico muestra el uso del agua durante este periodo de 10 días
-
-        \
+        Este gráfico muestra el uso del agua durante el periodo experimental de este proyecto.
     \end{minipage}
     \hfill
-    \begin{minipage}[t]{0.5\textwidth}
+    \begin{minipage}[t]{0.48\textwidth}
         \justifying
-          En este gráfico se observa como fue reduciendo el consumo de agua por día, mostrando el ajuste del sistema de riego a las necesidades del jardín.
+        En este gráfico se observa cómo fue reduciéndose el consumo de agua por día, mostrando el ajuste del sistema de riego a las necesidades del jardín.
     \end{minipage}
 
     \vspace{0.5cm}
     \hrule
-    \label{fig:consumo_agua}
 \end{figure}
+
 \begin{multicols}{2}
   
 En comparación, el sistema de riego tradicional tiene una frecuencia de riego de una vez al día en un horario fijo con el ajuste manual del volumen de riego ante la presencia de lluvia a lo largo del día, consumiendo 78 L para un periodo equivalente. Estos resultados y datos recabados se discuten en la siguiente sección.
@@ -341,13 +338,13 @@ La arquitectura incluye sensores ambientales, una unidad de procesamiento y actu
 
 Los siguientes componentes fueron integrados, con especificaciones técnicas para garantizar el rendimiento y la compatibilidad:
 \begin{itemize}
-  \item Microcontrolador ESP32-WROOM-32: Placa de desarrollo con ADC (Convertidor Analogico-Digital) de 12 bits, 32 pines GPIO (pins de Entrada y salida de Propósito General) digitales/analógicos y soporte para Micro Python. Se conectó a sensores a través de pines ADC (GPIO 34 para salida analógica, GPIO 32 para salida digital) y GPIO digitales (GPIO 15 para el relé). Su capacidad de procesamiento permite ejecutar algoritmos de decisión en tiempo real.
-  \item Sensor de Humedad YL-69/YL-38: Un sensor resistivo de humedad del suelo (YL-69) acoplado al módulo YL-38, que incluye un comparador LM393 SMD. El módulo YL-38 ofrece salidas analógica (A0, 0-4.2 V) y digital (D0, ajustable por umbral). Especificaciones: voltaje de operación 3.3-5 V, corriente 35 mA. La salida analógica A0 se conectó al pin GPIO 34 del ESP32 para lecturas de contenido volumétrico de agua (VWC). Debido a su diseño resistivo, se reconoce la limitación por corrosión a largo plazo.
-  \item Sensor de Temperatura y Humedad DHT11: Sensor digital que mide temperatura (0-50°C, precisión $\pm$2°C, resolución 0.1°C) y humedad del aire (20-90\% RH, precisión $\pm$4\% RH, resolución 1\% RH). Opera a 3.3-5 V y se conecta al GPIO 32 del ESP32 mediante una interfaz de un solo cable para salida digital. 
-  \item Sensor de Lluvia: Módulo basado en el comparador LM393, con una celda de detección. Opera a 3.3-5 V y proporciona una salida analógica (conectada al pin GPIO 35 del ESP32) y digital (D0, ajustable). Detecta precipitaciones para inhibir el riego, con un tiempo de respuesta $<$1 s.
-  \item Electroválvula Solenoide: Válvula de 3/4'' NPS, normalmente cerrada (NC), fabricada en plástico y latón, con voltaje de actuación de 12 VDC, corriente de 300 mA, presión de trabajo de 0.02-0.8 MPa y vida útil de 50,000 ciclos. Se conectó a través de un relé al pin GPIO 15 del ESP32, permitiendo el control del flujo de agua con tiempos de respuesta de 0.15 s (apertura) y 0.3 s (cierre)
-  \item Relé: Módulo de relé estándar de 12 V, con un canal de control a 5 V, conectado al pin GPIO 15 del ESP32 para activar la electroválvula. Soporta corrientes de hasta 10 A, asegurando una actuación confiable.
-  \item Fuente de Alimentación: Fuente regulada de 5V DC, 2 A, implementada mediante un convertidor reductor (modelo LM2596) para alimentar el ESP32, sensores y relé. La electroválvula se alimentó con una fuente separada de 12 VDC, 1 A, para evitar interferencias.
+  \item Microcontrolador ESP32-WROOM-32: Placa de desarrollo con ADC (Convertidor Analogico-Digital) de 12 bits, 32 pines GPIO (pins de Entrada y salida de Propósito General) digitales/analógicos y soporte para Micro Python. Se conectó a sensores a través de pines ADC (GPIO 34 para salida analógica, GPIO 32 para salida digital) y GPIO digitales (GPIO 15 para el relé). Su capacidad de procesamiento permite ejecutar algoritmos de decisión en tiempo real\cite{ref5}.
+  \item Sensor de Humedad YL-69/YL-38: Un sensor resistivo de humedad del suelo (YL-69) acoplado al módulo YL-38, que incluye un comparador LM393 SMD. El módulo YL-38 ofrece salidas analógica (A0, 0-4.2 V) y digital (D0, ajustable por umbral). Especificaciones: voltaje de operación 3.3-5 V, corriente 35 mA. La salida analógica A0 se conectó al pin GPIO 34 del ESP32 para lecturas de contenido volumétrico de agua (VWC). Debido a su diseño resistivo, se reconoce la limitación por corrosión a largo plazo \cite{ref6}.
+  \item Sensor de Temperatura y Humedad DHT11: Sensor digital que mide temperatura (0-50°C, precisión $\pm$2°C, resolución 0.1°C) y humedad del aire (20-90\% RH, precisión $\pm$4\% RH, resolución 1\% RH). Opera a 3.3-5 V y se conecta al GPIO 32 del ESP32 mediante una interfaz de un solo cable para salida digital \cite{ref7}. 
+  \item Sensor de Lluvia: Módulo basado en el comparador LM393, con una celda de detección. Opera a 3.3-5 V y proporciona una salida analógica (conectada al pin GPIO 35 del ESP32) y digital (D0, ajustable). Detecta precipitaciones para inhibir el riego, con un tiempo de respuesta $<$1 s \cite{ref8}.
+  \item Electroválvula Solenoide: Válvula de 3/4'' NPS, normalmente cerrada (NC), fabricada en plástico y latón, con voltaje de actuación de 12 VDC, corriente de 300 mA, presión de trabajo de 0.02-0.8 MPa y vida útil de 50,000 ciclos. Se conectó a través de un relé al pin GPIO 15 del ESP32, permitiendo el control del flujo de agua con tiempos de respuesta de 0.15 s (apertura) y 0.3 s (cierre) \cite{ref9}.
+  \item Relé: Módulo de relé estándar de 12 V, con un canal de control a 5 V, conectado al pin GPIO 15 del ESP32 para activar la electroválvula. Soporta corrientes de hasta 10 A, asegurando una actuación confiable \cite{ref10}.
+  \item Fuente de Alimentación: Fuente regulada de 5V DC, 2 A, implementada mediante un convertidor reductor (modelo LM2596) para alimentar el ESP32, sensores y relé. La electroválvula se alimentó con una fuente separada de 12 VDC, 1 A, para evitar interferencias \cite{ref11}.
 \end{itemize}
 
 Los componentes se ensamblan en una carcasa resistente a la intemperie, con cables de sensores expuestos al suelo y la atmósfera. Las conexiones se realizaron mediante una placa de prototipado, con los pines del ESP32 asignados como sigue: GPIO 34 (A0 del YL-38), GPIO 32 (DHT11), GPIO 35 (A0 del sensor de lluvia), GPIO 15 (relé para electroválvula).
@@ -427,6 +424,56 @@ Comisión del Agua del Estado de México.
 Agencia Digital del Estado de México, 2024.
 [En línea]. Disponible en: \url{https://caem.edomex.gob.mx/tarifas_agua_potable_drenaje_y_tratamiento_aguas_residuales}.
 [Último acceso: 21 06 2025].
+
+
+\bibitem{ref5}
+Espressif
+\textit{Ficha técnica del Microcontrolador ESP32}
+Espressif Systems, 2025.
+[En línea]. Disponible en: \url{https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf}
+[Último acceso: 24 06 2025] 
+
+\bibitem{ref6}
+Texas Instruments
+\textit{Ficha técnica Sensor de Humedad YL-69}
+Texas Instruments, 2025.
+[En línea]. Disponible en: \url{https://www.ti.com/lit/ds/symlink/lm393-n.pdf}
+[Último acceso: 24 06 2025] 
+
+\bibitem{ref7}
+AOSONG
+\textit{Ficha técnica Sensor de Temperatura y Humedad DHT11}
+APSONG Electronics, 2025.
+[En línea]. Disponible en: \url{https://components101.com/sites/default/files/component_datasheet/DFR0067%20DHT11%20Datasheet.pdf}
+[Último acceso: 24 06 2025] 
+
+\bibitem{ref8}
+STMicroelectronics
+\textit{Ficha técnica comparador LM393}
+STMicroelectronics, 2025.
+[En línea]. Disponible en: \url{https://www.alldatasheet.es/datasheet-pdf/view/172081/STMICROELECTRONICS/LM393.html}
+[Último acceso: 24 06 2025] 
+
+\bibitem{ref9}
+Adafruit
+\textit{Ficha técnica Electroválvula Solenoide}
+Adafruit, 2025.
+[En línea]. Disponible en: \url{https://agelectronica.lat/pdfs/textos/9/997.PDF}
+[Último acceso: 24 06 2025] 
+
+\bibitem{ref10}
+Steren
+\textit{Ficha técnica Relé}
+Steren, 2025.
+[En línea]. Disponible en: \url{https://www.steren.com.mx/relevador-compacto-de-1-polo-2-tiros-spdt-y-bobina-de-24-vcc.html}
+[Último acceso: 24 06 2025] 
+
+\bibitem{ref11}
+Texas Instruments
+\textit{Ficha técnica LM2596}
+Texas Instruments, 2025.
+[En línea]. Disponible en: \url{https://www.ti.com/lit/ds/symlink/lm2596.pdf}
+[Último acceso: 24 06 2025] 
 
 \end{thebibliography}
 \end{multicols}
