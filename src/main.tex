@@ -1,5 +1,3 @@
-
-
 \documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Style for submissions to Nature Portfolio journals
 \usepackage{fancyhdr} % después
 
@@ -60,6 +58,7 @@
 \usepackage{algpseudocode}%
 \usepackage{listings}%
 \usepackage[spanish]{babel}
+\usepackage{float}
 %%%%
 
 
@@ -152,7 +151,6 @@
 \textbf{Serrano Ramos Josué}, 
 \textbf{Valencia San Roman Joel} \\[0.3em]
 \textit{Escuela Superior de Cómputo, Instituto Politécnico Nacional}
-
 }
 
 \vspace{0.3em}
@@ -167,9 +165,6 @@ El manejo ineficiente del recurso hídrico, particularmente en el mantenimiento 
 
 \end{otherlanguage}
 
-
-
-
 \begin{multicols}{2}
 \justifying
 En la actualidad, el mundo enfrenta una problemática crítica que sigue en constante crecimiento, la urgencia de optimizar el uso de los recursos hídricos, especialmente en entornos urbanos de rápido crecimiento como lo son las ciudades, aunque apenas ocupan el 3\% de la superficie terrestre, ejercen una presión considerable sobre los sistemas hídricos, haciendo que la gestión del agua sea una preocupación primordial \cite{ref1}. En México, esta situación es particularmente apremiante, el director Vega López señala que específicamente en el Valle de México, existen restricciones en la oferta de agua que amenazan la seguridad hídrica de la Región Hidrológico-Administrativa XIII (RHA XIII), comprometiendo gravemente la sustentabilidad\cite{ref2}. Dentro de este contexto, tenemos diversas actividades cotidianas, que, al no siempre ajustarse a criterios ambientales adecuados para un uso eficiente del agua, contribuyen a esta problemática hídrica, un ejemplo relevante de ello es el riego de jardines domésticos.
@@ -180,101 +175,155 @@ Para abordar esta brecha y desarrollar una solución práctica y económica que 
 
 Con el objetivo de resolver esta situación, el trabajo se centra en el diseño e implementación de un asistente inteligente de riego en tiempo real, buscando reducir los costos relacionados con el consumo de agua en este jardín doméstico. El enfoque metodológico adoptado es de tipo mixto, combinando métodos cuantitativos para evaluar el impacto técnico del sistema y cualitativos para analizar la percepción y aceptación de los usuarios.
 \end{multicols}
-
-
-\section{Results}\label{sec2}
-
-\subsection{Variación de la temperatura ambiente}
-
-
-
-
-
+\section*{Resultados}\label{sec2}
+\subsection*{Variación de la temperatura ambiente}
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\textwidth]{assets/temperatura_promedio.png}
+    \caption{Temperatura promedio registrada durante el periodo experimental}
+    \label{fig:temperatura}
 
     \vspace{0.4cm}
 
     \noindent
     \begin{minipage}[t]{0.5\textwidth}
         \raggedright
-        \textbf{Fig. 1 Temperatura.} Este gráfico muestra la evolución promedio de la temperatura registrada por los sensores en el jardín doméstico durante el periodo.
+        Este gráfico muestra la evolución promedio de la temperatura registrada por los sensores en el jardín doméstico durante el periodo.
 
         \
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.5\textwidth}
         \justifying
-        Este gráfico muestra la evolución promedio de la temperatura registrada por los sensores en el jardín doméstico durante el periodo febrero-junio de 2025. Se observan patrones diarios de temperatura, con picos más altos alrededor del mediodía y descensos durante la noche.
+        Registrada por los sensores en el jardín doméstico durante el periodo febrero-junio de 2025. Se observan patrones diarios de temperatura, con picos más altos alrededor del mediodía y descensos durante la noche.
+    \end{minipage}
+
+    \vspace{0.5cm}
+    \hrule
+    %\caption{Temperatura promedio registrada durante el experimento}
+    \label{fig:temperatura_promedio}
+\end{figure}
+
+\begin{multicols}{2}
+Con estos resultados, se detallan las condiciones de temperatura y su correlación con el riego. La siguiente sección explora las variaciones observadas en las lecturas de humedad a lo largo del periodo de estudio.
+
+\subsection*{Monitoreo de humedad}
+
+La humedad promedio del suelo, medida durante el período de estudio de 10 días, oscila entre 707.25 y 802.83 unidades en una escala de 0 (presencia total de humedad) a 4500(ausencia total de humedad) establecida por el sensor de humedad implementado dentro del sistema de riego según los datos registrados.
+
+Los primeros días del periodo se identifican como una fase de calibración y adaptación inicial del sistema de riego. Durante este periodo inicial se obtienen valores más altos de humedad como se muestra en la Figura~\ref{fig:humedad_del_suelo}.
+
+Al pasar el cuarto día, los valores se van normalizando hasta lograr una tendencia uniforme por el resto del periodo, siendo reflejado en la frecuencia de riego por día, mostrando la adaptación del sistema a su entorno al reducir la frecuencia.  
+
+\end{multicols}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{assets/humedad_promedio.png}
+
+    \caption{Humedad promedio registrada durante el periodo experimental}
+    \label{fig:humedad_del_suelo}
+
+    \vspace{0.4cm}
+
+    \noindent
+    \begin{minipage}[t]{0.5\textwidth}
+        \raggedright
+        Este gráfico muestra la evolución promedio de la humedad registrada por los sensores en el jardín doméstico durante el periodo.
+
+        \
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.5\textwidth}
+        \justifying
+        Muestra como empieza a normalizarse la humedad del suelo del jardín doméstico, con valores altos en los primeros días indicando poca humedad para pasar por un día de sobreirrigación y finalmente obtener la normalización de la humedad del suelo.
     \end{minipage}
 
     \vspace{0.5cm}
     \hrule
 \end{figure}
 
-
-    
-    
-    \label{fig2}
-
-
-
-
-
-
-
-Con estos resultados, se detallan las condiciones de temperatura y su correlación con el riego. La siguiente sección explora las variaciones observadas en las lecturas de humedad a lo largo del periodo de estudio.
-
-\subsection{Monitoreo de humedad}
-
-La humedad promedio del suelo, medida durante el período de estudio de 10 días, oscila entre 707.25 y 802.83 unidades en una escala de 0 (presencia total de humedad) a 4500(ausencia total de humedad) establecida por el sensor de humedad implementado dentro del sistema de riego según los datos registrados.
-
-Los primeros días del periodo se identifican como una fase de calibración y adaptación inicial del sistema de riego. Durante este periodo inicial se obtienen valores más altos de humedad como se muestra en la gráfica \href{fig4}{[3]}.
-
-Al pasar el cuarto día, los valores se van normalizando hasta lograr una tendencia uniforme por el resto del periodo, siendo reflejado en la frecuencia de riego por día, mostrando la adaptación del sistema a su entorno al reducir la frecuencia.  
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\textwidth]{assets/humedad_promedio.png}
-  \caption{Frecuencia de riego contra humedad ambiente.}
-  \label{fig4}
-\end{figure}
+\begin{multicols}{2}
 
 Si bien un periodo de observación más extenso permitiría identificar esta tendencia, los resultados actuales ya evidencian una mejora significativa en la capacidad del sistema para mantener condiciones de humedad constantes, lo cual es fundamental para la optimización del consumo de agua en entornos domésticos que será explorada a detalle en la siguiente sección.
 
-\subsection{Consumo de agua}
+\subsection*{Consumo de agua}
 Durante los 10 días de monitoreo de la fase de implementación del asistente inteligente de riego se registraron 2 días cuya frecuencia de riego fue de dos veces. Posteriormente, cada dos días se regaba una vez. 
 Considerando que, por cada apertura de las válvulas, se daba el paso a 4.93 L; en los primeros dos días se hizo un gasto diario de 9.86 L; luego, el gasto se redujo a 4.93 L por cada dos días. 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\textwidth]{assets/eventos_por_dia.png}
-  \caption{Eventos de riego diarios.}
-  \label{fig5}
+\end{multicols}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{assets/eventos_por_dia.png}
+
+    \caption{Eventos de riego por día durante el periodo experimental}
+    \label{fig:riego}
+
+    \vspace{0.4cm}
+
+    \noindent
+    \begin{minipage}[t]{0.5\textwidth}
+        \raggedright
+        Este gráfico muestra la variacion del riego durnate el periodo de 10 días
+
+        \
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.5\textwidth}
+        \justifying
+           La variación en los eventos de riego que muestra el gráfico indica el trabajo del sistema de riego, el cual se fue ajustando según las necesidades del jardín.
+    \end{minipage}
+
+    \vspace{0.5cm}
+    \hrule
+    \label{fig:eventos_riego}
 \end{figure}
 
-Por otro lado, se puede describir una frecuencia de riego de 0.8 veces al día y una desviación estándar de 0.789 veces. Estos datos se traducen a un consumo medio de 3.944 L con una desviación estándar de 3.889 L. 
-Así, para analizar la operación del sistema una vez estabilizado, se calcularon las métricas excluyendo los dos primeros días de implementación. La media es de 0.5 veces al día con una desviación estándar de 0.536 veces, implicando un consumo medio de 2.465 L con una desviación de 2.635 L.
+\begin{multicols}{2}
+  Por otro lado, se puede describir una frecuencia de riego de 0.8 veces al día y una desviación estándar de 0.789 veces. Estos datos se traducen a un consumo medio de 3.944 L con una desviación estándar de 3.889 L. 
+  Así, para analizar la operación del sistema una vez estabilizado, se calcularon las métricas excluyendo los dos primeros días de implementación. La media es de 0.5 veces al día con una desviación estándar de 0.536 veces, implicando un consumo medio de 2.465 L con una desviación de 2.635 L.
+\end{multicols}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\textwidth]{assets/consumo_diario.png}
-  \caption{Consumo diario de agua.}
-  \label{fig6}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{assets/consumo_diario.png}
+
+    \caption{Consumo diario de agua durante el periodo experimental}
+    \label{fig:consumo}
+
+    \vspace{0.4cm}
+
+    \noindent
+    \begin{minipage}[t]{0.5\textwidth}
+        \raggedright
+        Este gráfico muestra el uso del agua durante este periodo de 10 días
+
+        \
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.5\textwidth}
+        \justifying
+          En este gráfico se observa como fue reduciendo el consumo de agua por día, mostrando el ajuste del sistema de riego a las necesidades del jardín.
+    \end{minipage}
+
+    \vspace{0.5cm}
+    \hrule
+    \label{fig:consumo_agua}
 \end{figure}
-
+\begin{multicols}{2}
+  
 En comparación, el sistema de riego tradicional tiene una frecuencia de riego de una vez al día en un horario fijo con el ajuste manual del volumen de riego ante la presencia de lluvia a lo largo del día, consumiendo 78 L para un periodo equivalente. Estos resultados y datos recabados se discuten en la siguiente sección.
 
-\section{Discusión}
+\section*{Discusión}
 
-\subsection{Reducción en el consumo de agua}
+\subsection*{Reducción en el consumo de agua}
 
 El asistente inteligente de riego demostró una reducción significativa en el consumo de agua en un periodo de 10 días, el sistema tradicional consumió un aproximado de 78 L mientras que el sistema propuesto, tuvo un consumo total de aproximadamente 39.44 L en un periodo igual a 10 días como se menciona en la sección de resultados. Esto representa una notable reducción del 49.44\%. Este hallazgo valida la capacidad del sistema para optimizar el uso del agua en entornos domésticos, lo que se traduce en ahorro económico y una importante contribución a la sostenibilidad hídrica. Los resultados obtenidos se encuentran en el rango de las expectativas de reducción de consumo de agua esperadas del 30\% a 50\% atribuidas a sistemas inteligentes de IA, demostrando una alta eficiencia para una solución adaptable al contexto doméstico y de bajo costo.
 
 La principal limitación es el corto periodo de monitoreo de 10 días, que, aunque muestra buenos resultados, requiere validación a largo plazo para que pueda considerar más cambios de clima como, por ejemplo días constantes de lluvia o soleados o fríos y de ese modo tener una identificación de patrones estacionales que podrían influir en el consumo. A pesar de eso, el éxito del sistema resalta muy bien el potencial del machine learning en sistemas embebidos para la optimización de recursos, sin embargo, se tendrá contemplado que para futuras investigaciones se deberá extender el tiempo de monitoreo.
 
-\subsection{Variables relevantes}
+\subsection*{Variables relevantes}
 El monitoreo de variables ambientales que también se hace mención en la sección de resultados fue fundamental para el funcionamiento del sistema, se encontró una correlación positiva moderada entre la temperatura ambiente y la frecuencia de riego, con temperaturas diarias promedio de 23.38°C, sin embargo, se identificaron dos casos atípicos de riego en las temperaturas de 0°C y 26°C, con respecto a la humedad del suelo, los valores oscilaron entre 707.25 y 802.83 unidades, y también se observó una fase inicial de calibración con valores de humedad más altos, seguida de una normalización y una tendencia uniforme a partir del cuarto día, lo que se correlacionó con una reducción en la frecuencia de riego.
 
 La correlación positiva entre la temperatura y la frecuencia de riego es un indicador crucial de que el sistema responde de manera lógica a las necesidades hídricas del jardín, los casos atípicos nos muestran áreas para la mejora en la robustez del modelo frente a valores extremos o lecturas inusuales y el comportamiento de la humedad del suelo demuestra la capacidad de adaptación y autorregulación del sistema. Esta fase de calibración inicial es esperable en un sistema de machine learning que se adapta al entorno, se ajustó y mantuvo la humedad del suelo en un nivel ideal, lo que automáticamente redujo la frecuencia de riego, eso válida la eficiencia del algoritmo para evitar el sobre-riego y garantizar el suministro adecuado de agua.
@@ -282,9 +331,9 @@ La correlación positiva entre la temperatura y la frecuencia de riego es un ind
 Similar al consumo de agua, la limitación principal fue el periodo de monitoreo de solo 10 días, que, aunque suficiente para observar tendencias iniciales y la adaptación del sistema, no permite capturar variaciones estacionales en la temperatura y la humedad, las cuales sí pudieron haber influido en el rendimiento del sistema. La presencia de casos atípicos en la temperatura también nos muestra que el modelo podría beneficiarse de algoritmos más avanzados para el manejo de valores extremos.
 
 El sistema mostró que puede mantener la salud del jardín mientras se minimiza el desperdicio de agua. En futuras investigaciones se podría poner más enfoque en la integración de más variables fuera de los sensores como lo son los pronósticos meteorológicos a corto plazo. También sería valioso explorar la implementación de algoritmos de machine learning más complejos que puedan aprender patrones a largo plazo y manejar de forma más sofisticada los datos atípicos para optimizar aún más la toma de decisiones de riego.
-\section{Métodos}
+\section*{Métodos}
 
-\subsection{Componentes usados}
+\subsection*{Componentes usados}
 
 El sistema de riego inteligente fue diseñado con una arquitectura modular basada en el microcontrolador ESP32-WROOM-32 (Expressif Systems), por su conectividad Wi-Fi integrada y soporte para protocolos de comunicación inalámbrica de baja latencia, como ESP-NOW, que permite la interoperabilidad sin conexión constante a internet (Ponce Pérez et al., 2021). 
 
@@ -309,7 +358,7 @@ El algoritmo de control implementó una lógica basada en umbrales: el riego se 
 
 Los eventos de riego se limitan a 1-2 minutos, con un máximo de 4 eventos diarios. Los datos de sensores se procesan cada 30 minutos, con filtrado de ruido mediante un promedio móvil (ventana de 5 muestras).
 
-\subsection{Distribución de asistente inteligente de riego}
+\subsection*{Distribución de asistente inteligente de riego}
 La arquitectura funcional del sistema se diseñó siguiendo el enfoque de tres capas descrito anteriormente: percepción, procesamiento y actuación. Esta estructura se implementó mediante tres módulos físicos: el módulo de recolección de datos, el módulo de procesamiento y el módulo de válvulas, cada uno con funciones específicas coordinadas a través de comunicación inalámbrica directa.
 
 El módulo de recolección de datos está conformado por sensores encargados de medir la humedad del suelo, temperatura ambiental y la presencia de lluvia, permitiendo capturar en tiempo real las condiciones ambientales del entorno de prueba.
@@ -324,19 +373,17 @@ Finalmente, el módulo de válvulas implementa la capa de activación del sistem
 
 Esta estructura modular y distribuida facilita la expansión del sistema a mayor escala mediante la replicación de nodos sensores, manteniendo una lógica de control centralizada.
 
-\section{Recopilación de datos}
+\section*{Recopilación de datos}
 
 El sistema fue evaluado durante un periodo experimental de diez días comprendido entre el 3 y el 12 de junio de 2025. Durante este intervalo, se registraron de forma continua las siguientes variables: humedad del suelo, temperatura ambiental, ocurrencia de lluvia y activaciones de la electroválvula. Los datos fueron almacenados localmente en formato CSV dentro de la memoria no volátil, con el objetivo de facilitar su posterior análisis fuera de línea.
 
-Para realizar la consulta de los datos almacenados, el proceso de medición se interrumpe en un periodo de 10 minutos lo cual hacía que se perdieran datos del jardín en este tiempo sin embargo no se interrumpe el accionamiento de las válvulas además de que estas interrupciones se realizaban en horarios que no interfirieran en el funcionamiento del módulo de procesamiento.
+Para realizar la consulta de los datos almacenados, el proceso de medición se interrumpe en un periodo de 10 minutos, lo cual hacía que se perdieran datos del jardín en este tiempo. Sin embargo, no se interrumpe el accionamiento de las válvulas, además de que estas interrupciones se realizaban en horarios que no interfirieran en el funcionamiento del módulo de procesamiento.
 
 La frecuencia de muestreo no fue constante, ya que estuvo determinada por la lógica de activación del microcontrolador y el comportamiento dinámico de las condiciones ambientales. A pesar de esta variabilidad, los datos obtenidos resultaron suficientes para construir series temporales que permitieron analizar tendencias de comportamiento del sistema. 
 
 El análisis exploratorio de los datos fue realizado externamente mediante herramientas de hoja de cálculo y análisis de datos en Python, lo que permitió identificar patrones de estabilización del sistema, así como inferir su capacidad de adaptación progresiva al entorno específico en el que fue implementado.
 
-\section{Conclusión}
-
-El presente trabajo abordó una problemática creciente de la escasez hídrica y la necesidad de optimizar su consumo en entornos urbanos, particularmente en el riego de jardines domésticos, un área donde las soluciones a menudo presentan limitaciones de costo y complejidad. El objetivo principal fue diseñar e implementar un asistente inteligente de riego en tiempo real basado en machine learning y los resultados demuestran la viabilidad y alta eficiencia del sistema propuesto.
+\section*{Conclusión}
 
 En un periodo de 10 días, se logró una notable reducción del 49.44\% en el consumo de agua comparado con el riego tradicional, este hallazgo no solo confirma que el sistema es capaz de generar ahorros económicos directos para la persona que lo use, sino que también válida su potencial para contribuir a la sostenibilidad hídrica en el ámbito residencial y a las investigaciones en el ámbito tecnológico. La efectividad del sistema se fundamenta en su capacidad para monitorear variables ambientales clave como la temperatura y la humedad del suelo, adaptando la frecuencia de riego de manera inteligente para evitar el sobre-riego y garantizar el suministro adecuado de agua.
 
@@ -381,10 +428,6 @@ Agencia Digital del Estado de México, 2024.
 [En línea]. Disponible en: \url{https://caem.edomex.gob.mx/tarifas_agua_potable_drenaje_y_tratamiento_aguas_residuales}.
 [Último acceso: 21 06 2025].
 
-
-
-
 \end{thebibliography}
-
-
+\end{multicols}
 \end{document}
