@@ -169,7 +169,7 @@ El manejo ineficiente del recurso hídrico, particularmente en el mantenimiento 
 \justifying
 En la actualidad, el mundo enfrenta una problemática crítica que sigue en constante crecimiento, la urgencia de optimizar el uso de los recursos hídricos, especialmente en entornos urbanos de rápido crecimiento como las ciudades, aunque apenas ocupan el 3\% de la superficie terrestre, ejercen una presión considerable sobre los sistemas hídricos, haciendo que la gestión del agua sea una preocupación primordial \cite{ref1}. En México, esta situación es particularmente apremiante, el Director de la Facultad de Economía de la Universidad Nacional Autómata de México Vega López señala que específicamente en el Valle de México, existen restricciones en la oferta de agua que amenazan la seguridad hídrica de la Región Hidrológico-Administrativa XIII (RHA XIII), unidad establecida por CONAGUA para la gestión del agua que abarca la CDMX y partes de los estados de México, Hidalgo y Tlaxcala, comprometiendo gravemente la sustentabilidad \cite{ref2}. Dentro de este contexto, tenemos diversas actividades cotidianas, que, al no siempre ajustarse a criterios ambientales adecuados para un uso eficiente del agua, contribuyen a esta problemática hídrica, un ejemplo relevante de ello es el riego de jardines domésticos.
 
-En diversos estudios se propusieron soluciones para la gestión del agua, incluyendo la modernización de infraestructuras, la consideración de factores socioambientales y enfoques basados en la naturaleza. En el ámbito tecnológico, las soluciones fueron sistemas de riego con Inteligencia Artificial (IA) que se apoyan con factores del propio entorno \cite{ref3}, estas propuestas al ser evaluadas y comparadas han demostrando su potencial para reducir el consumo de agua de entre un 30\% hasta un 50\% en comparación con métodos tradicionales. Sin embargo, muchas de estas propuestas presentan limitaciones para contextos domésticos debido a su alto costo, complejidad o dependencia de infraestructura especializada. Esto genera una brecha en la disponibilidad de soluciones accesibles y eficientes para el ahorro de agua en jardines residenciales.
+En diversos estudios se propusieron soluciones para la gestión del agua, incluyendo la modernización de infraestructuras, la consideración de factores socioambientales y enfoques basados en jardínes domésticos. En el ámbito tecnológico, las soluciones fueron sistemas de riego con Inteligencia Artificial (IA) que se apoyan con factores del propio entorno \cite{ref3}, estas propuestas al ser evaluadas y comparadas han demostrando su potencial para reducir el consumo de agua de entre un 30\% hasta un 50\% en comparación con métodos tradicionales. Sin embargo, muchas de estas propuestas presentan limitaciones para contextos domésticos debido a su alto costo, complejidad o dependencia de infraestructura especializada. Esto genera una brecha en la disponibilidad de soluciones accesibles y eficientes para el ahorro de agua en jardines residenciales.
 
 Para abordar esta brecha y desarrollar una solución práctica y económica que sea aplicable dentro de entornos domésticos, este estudio aborda la problemática específica del alto consumo de agua en el cuidado de jardines domésticos, mostrando el desarrollo y la implementación en el domicilio lote 30, manzana 5, Calle Cerro de la Silla, colonia Sagitario 1, Ecatepec de Morelos, donde se ha contabilizado un promedio de 240 L/mes para un jardín de 49 $m^2$. Esta vivienda es considerada como una unidad doméstica, media y de uso medido, por lo que el costo de consumo de agua, considerando solo al jardín, se estima en \$108/mes y \$1,295/año \cite{ref4}.
 
@@ -186,7 +186,7 @@ A pesar de la variabilidad de los valores recopilados, al promediar los valores 
     
 %%----------- Figura ------------
 \end{multicols}
-\begin{figure}[!ht]
+\begin{figure}[H]
     \hrule
     \vspace{0.2cm}
     \centering
@@ -217,7 +217,7 @@ A pesar de la variabilidad de los valores recopilados, al promediar los valores 
     \hrule
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/temperatura_promedio_y_estadisticas.eps}
     \caption{Promedio diario, promedio total y dispersión de la temperatura ambiente durante el periodo experimental.}
@@ -261,7 +261,7 @@ Al pasar el cuarto día, los valores se van normalizando hasta lograr una tenden
 Si bien un periodo de observación más extenso permitiría identificar esta tendencia, los resultados actuales ya evidencian una mejora significativa en la capacidad del sistema para mantener condiciones de humedad constantes, lo cual es fundamental para la optimización del consumo de agua en entornos domésticos que será explorada a detalle en la siguiente sección.
 \end{multicols}
 \newpage
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/humedad_promedio.png}
 
@@ -304,7 +304,7 @@ En comparación, el sistema de riego tradicional tiene una frecuencia de riego d
 
 %%----------- Figura ------------
 \end{multicols}
-\begin{figure}[!h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/activaciones_riego_diarias.eps}
     \caption{Activaciones de riego diaria durante el periodo experimental.}
@@ -329,7 +329,7 @@ En comparación, el sistema de riego tradicional tiene una frecuencia de riego d
 
 \newpage
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/activaciones_riego_promedio_y_estadisticas.eps}
     \caption{Promedio de activaciones de riego, media general y dispersión de la frecuencia de riego durante el periodo experimental.}
@@ -389,7 +389,7 @@ En comparación, el sistema de riego tradicional tiene una frecuencia de riego d
 
 %%----------- Figura ------------
 \end{multicols}
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/consumo_diario_promedio_y_estadisticas.eps}
     \caption{Promedio diario, promedio total y dispersión del consumo de agua durante el periodo experimental.}
@@ -437,7 +437,7 @@ El sistema mostró que puede mantener la salud del jardín mientras se minimiza 
 
 \subsection*{Componentes usados}
 
-El sistema de riego inteligente fue diseñado con una arquitectura modular basada en el microcontrolador ESP32-WROOM-32 (Expressif Systems), por su conectividad Wi-Fi integrada y soporte para protocolos de comunicación inalámbrica de baja latencia, como ESP-NOW, que permite la interoperabilidad sin conexión constante a internet (Ponce Pérez et al., 2021). 
+El sistema de riego inteligente fue diseñado con una arquitectura modular basada en el microcontrolador ESP32-WROOM-32 (Expressif Systems), por su conectividad Wi-Fi integrada y soporte para protocolos de comunicación inalámbrica de baja latencia, como ESP-NOW, que permite la interoperabilidad sin conexión constante a internet \cite{ref15}. 
 
 La arquitectura incluye sensores ambientales, una unidad de procesamiento y actuadores, componentes interconectados para monitorear y controlar el riego en tiempo real en un jardín doméstico experimental.
 
@@ -454,9 +454,9 @@ Los siguientes componentes fueron integrados, con especificaciones técnicas par
 
 Los componentes se ensamblan en una carcasa resistente a la intemperie, con cables de sensores expuestos al suelo y la atmósfera. Las conexiones se realizaron mediante una placa de prototipado, con los pines del ESP32 asignados como sigue: GPIO 34 (A0 del YL-38), GPIO 32 (DHT11), GPIO 35 (A0 del sensor de lluvia), GPIO 15 (relé para electroválvula).
 
-El firmware del ESP32 se desarrolló en MicroPython utilizando el IDE Thonny, con las bibliotecas machine para control de pines como dht para el DHT11 y utime para sincronización. 
+El firmware del ESP32 se desarrolló en MicroPython utilizando el IDE Thonny, con la ayuda de unas bibliotecas de machine, una de ellas para el control de pines como DHT para el DHT11\cite{ref13} y por otro lado, UTIME\cite{ref14} para sincronización. 
 
-El algoritmo de control implementó una lógica basada en umbrales: el riego se activa si la humedad del suelo (lectura analógica del YL-38) cae por debajo del 40% VWC, la temperatura (DHT11) supera 25°C y no se detecta lluvia (sensor de lluvia, salida digital D0 en bajo). 
+El algoritmo de control implementó una lógica basada en umbrales: el riego se activa si la humedad del suelo (lectura analógica del YL-38) cae por debajo del 40\% VWC, la temperatura (DHT11) supera 25°C y no se detecta lluvia (sensor de lluvia, salida digital D0 en bajo). 
 
 Los eventos de riego se limitan a 1-2 minutos, con un máximo de 4 eventos diarios. Los datos de sensores se procesan cada 30 minutos, con filtrado de ruido mediante un promedio móvil (ventana de 5 muestras).
 
@@ -495,7 +495,7 @@ Si bien el periodo de monitoreo de pocos días representa una limitación para i
 Para acceder a los datos de entrenaiento del modelo utilizado en este proyecto puede acceder a este enlace donde encontrará un archivo CSV que le ayudará a entrenar el modelo para realizar predicciones sobre el jardín en el que se desee implementar \url{https://github.com/BraveHunt25/asistente-inteligente-de-riego/tree/main/Datos}
 
 \section*{Disponibilidad de código}
-Para consultar el código utilizado en la implementación de este sistema de riego inteligente puede acceder al siguiente repositorio \url{https://github.com/BraveHunt25/asistente-inteligente-de-riego}, donde encontrará el código para cada uno de los módulos del sistema de riego, el módulo emisor, el módulo de procesamiento y el módulo de control de las válvulas.
+Para consultar el código utilizado en la implementación de este sistema de riego inteligente puede acceder al siguiente repositorio \url{https://github.com/BraveHunt25/asistente-inteligente-de-riego}, donde encontrará el código para cada uno de los módulos del sistema de riego: el módulo emisor, el módulo de procesamiento y el módulo de control de las válvulas.
 %%===========================================================================================%%
 %% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
 %% system, please include the references within the manuscript file itself. You may do this  %%
@@ -540,49 +540,49 @@ Espressif.
 \textit{Ficha técnica del Microcontrolador ESP32}
 Espressif Systems, 2025.
 [En línea]. Disponible en:\url{https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf}
-[Último acceso: 24 06 2025] 
+[Último acceso: 24 03 2025] 
 
 \bibitem{ref6}
 Texas Instruments.
 \textit{Ficha técnica Sensor de Humedad YL-69}
 Texas Instruments, 2025.
 [En línea]. Disponible en:\url{https://www.ti.com/lit/ds/symlink/lm393-n.pdf}
-[Último acceso: 24 06 2025] 
+[Último acceso: 24 03 2025] 
 
 \bibitem{ref7}
 AOSONG.
 \textit{Ficha técnica Sensor de Temperatura y Humedad DHT11}
 APSONG Electronics, 2025.
 [En línea]. Disponible en:\url{https://components101.com/sites/default/files/component_datasheet/DFR0067%20DHT11%20Datasheet.pdf}
-[Último acceso: 24 06 2025] 
+[Último acceso: 24 03 2025] 
 
 \bibitem{ref8}
 STMicroelectronics.
 \textit{Ficha técnica comparador LM393}
 STMicroelectronics, 2025.
 [En línea]. Disponible en:\url{https://www.alldatasheet.es/datasheet-pdf/view/172081/STMICROELECTRONICS/LM393.html}
-[Último acceso: 24 06 2025] 
+[Último acceso: 24 03 2025] 
 
 \bibitem{ref9}
 Adafruit.
 \textit{Ficha técnica Electroválvula Solenoide}
 Adafruit, 2025.
 [En línea]. Disponible en:\url{https://agelectronica.lat/pdfs/textos/9/997.PDF}
-[Último acceso: 24 06 2025] 
+[Último acceso: 24 03 2025] 
 
 \bibitem{ref10}
 Steren.
 \textit{Ficha técnica Relé}
 Steren, 2025.
 [En línea]. Disponible en:\href{https://www.steren.com.mx/relevador-compacto-de-1-polo-2-tiros-spdt-y-bobina-de-24-vcc.html}{https://www.steren.com.mx/relevador-compacto-de-1-polo-2-tiros-spdt-y- bobina-de-24-vcc.html}
-[Último acceso: 24 06 2025] 
+[Último acceso: 24 03 2025] 
 
 \bibitem{ref11}
 Texas Instruments.
 \textit{Ficha técnica LM2596}
 Texas Instruments, 2025.
 [En línea]. Disponible en:\url{https://www.ti.com/lit/ds/symlink/lm2596.pdf}
-[Último acceso: 24 06 2025] 
+[Último acceso: 24 03 2025] 
 
 \bibitem{ref12}
 L. I. Chang Wong
@@ -590,6 +590,25 @@ L. I. Chang Wong
 Universidad Católica Santo Toribio de Mogrovejo, 2020.
 [En línea]. Disponible en:\url{https://tesis.usat.edu.pe/handle/20.500.12423/2799}
 [Último acceso: 08 03 2025]
+
+\bibitem{ref13}
+ARDUINO.
+\textit{Documentacion DHT}
+ARDUINO, 2025.
+[En línea]. Disponible en: \url{https://docs.arduino.cc/libraries/dht-sensor-library/}
+[Último acceso: 08 03 2025]
+
+\bibitem{ref14}
+MicroPython.
+\textit{Documentacion UTIME}
+MicroPython, 2025.
+[En linea]. Disponible en: \url{https://docs.micropython.org/en/v1.15/library/utime.html}
+[Último acceso: 08 03 2025]
+
+\bibitem{ref15}
+D. F. Ponce Pérez, K. K. Ponce Cruz y L. J. Rodríguez Navarro
+\textit{Implementación de sistema automatizado de monitoreo de riego, empleando tecnología de microprocesadores con relación al manejo tradicional del recurso agua, en la finca El Descargadero Estelí, durante el segundo semestre 2020}
+Facultad Regional Multidisciplinaria, Estelí, Estelí, 2021.
 
 \end{thebibliography}
 \end{multicols}
